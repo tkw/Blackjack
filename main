@@ -1,3 +1,4 @@
+#http://www.codeskulptor.org/#user31_XKcltpJFFI_0.py
 # Mini-project #6 - Blackjack
 
 import simplegui
@@ -51,7 +52,8 @@ class Card:
 # define hand class
 class Hand:
     def __init__(self):
-        pass	# create Hand object
+        # create Hand object
+		pass
 
     def __str__(self):
         pass	# return a string representation of a hand
@@ -70,17 +72,28 @@ class Hand:
 # define deck class 
 class Deck:
     def __init__(self):
-        pass	# create a Deck object
-
-    def shuffle(self):
+        # create a Deck object
+		self.deck_suit=SUITS
+		self.deck_rank=RANKS
+		self.deck_cards=[]
+		for i in range(0,len(self.deck_suit)):
+			for j in range(0,len(self.deck_rank)):
+				self.deck_cards.append(self.deck_suit[i]+self.deck_rank[j])
+    
+	def shuffle(self):
         # shuffle the deck 
-        pass    # use random.shuffle()
-
+        # use random.shuffle()
+		random.shuffle(self.deck_cards)
+		
     def deal_card(self):
-        pass	# deal a card object from the deck
+        # deal a card object from the deck
+		self.card_issue=self.deck_cards[-1]
+		del self.deck_cards[-1]
+		return  self.card_issue
     
     def __str__(self):
-        pass	# return a string representing the deck
+        # return a string representing the deck
+		return str(self.deck_cards)
 
 
 
